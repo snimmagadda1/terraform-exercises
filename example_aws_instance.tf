@@ -7,7 +7,7 @@
 # }
 
 resource "aws_instance" "terraform_example" {
-    ami           = "ami-b374d5a5"
+    ami           = "${lookup(var.amis, var.region)}"
     instance_type = "t2.micro"
 
     provisioner "local-exec" {
