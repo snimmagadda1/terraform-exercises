@@ -18,3 +18,7 @@ resource "aws_instance" "terraform_example" {
 resource "aws_eip" "ip" {
     instance = "${aws_instance.terraform_example.id}"
 }
+
+output "ip" {
+    value = "${aws_eip.ip.public_ip}"
+}
